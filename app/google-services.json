@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "221449179641",
+    "project_id": "malkia-84e6e",
+    "storage_bucket": "malkia-84e6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221449179641:android:05bf513223f799ab636d28",
+        "android_client_info": {
+          "package_name": "com.example.malkia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsAmf8-92d5oLqoti2_L9v3ZtZw1-eevc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
