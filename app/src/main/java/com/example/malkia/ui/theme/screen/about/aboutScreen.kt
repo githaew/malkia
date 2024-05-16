@@ -1,12 +1,14 @@
 package com.example.malkia.ui.theme.screen.about
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -14,55 +16,57 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.malkia.navigation.ROUTE_LOGIN_SCREEN
+import com.example.malkia.navigation.ROUTE_REGISTER_SCREEN
+
+//@Composable
+//fun HomeScreen() {
+//    Scaffold(
+//        topBar = {
+//            TopAppBar(
+//                title = {
+//                    Text(text = stringResource(id = R.string.app_name))
+//                },
+//                backgroundColor = MaterialTheme.colors.primary
+//            )
+//        },
+//        content = {
+//            HomeContent()
+//        }
+//    )
+//}
 
 @Composable
-fun HomeScreen() {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = stringResource(id = R.string.app_name))
-                },
-                backgroundColor = MaterialTheme.colors.primary
-            )
-        },
-        content = {
-            HomeContent()
-        }
-    )
-}
-
-@Composable
-fun HomeContent() {
+fun HomeContent(navController: NavController) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(16.dp)
+            .background(Color.Gray),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         item {
-            HomeListItem(title = "Item 1", subtitle = "Description for Item 1")
+            HomeListItem(title = "Welcome", subtitle = "This app is for students registration while taking a book from the school library.",navController=navController)
         }
         item {
-            HomeListItem(title = "Item 2", subtitle = "Description for Item 2")
+            HomeListItem(title = "About", subtitle = "Students are required to give there information as inquired.Fill the spaces with correct information.",navController=navController)
         }
-        item {
-            HomeListItem(title = "Item 3", subtitle = "Description for Item 3")
+        
+//            HomeListItem(title = "Item 4", subtitle = "Description for Item 4")
         }
-        item {
-            HomeListItem(title = "Item 4", subtitle = "Description for Item 4")
-        }
-        // Add more items as needed
+
     }
-}
+
 
 @Composable
-fun HomeListItem(title: String, subtitle: String) {
+fun HomeListItem(title: String, subtitle: String,navController: NavController) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        backgroundColor = Color.White,
-        elevation = 4.dp
+//        elevation = 4.dp
     ) {
         Column(
             modifier = Modifier
@@ -71,19 +75,31 @@ fun HomeListItem(title: String, subtitle: String) {
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.h6
+                style = MaterialTheme.typography.headlineMedium
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = subtitle,
-                style = MaterialTheme.typography.body1,
+                style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Start
             )
         }
     }
-}
+    Button(
+        onClick = {
+            navController.navigate(ROUTE_LOGIN_SCREEN)
+        },
+        modifier = Modifier
+            .fillMaxSize()
+            .height(100.dp)
+    ) {
+        Text(text="Login", fontSize = 30.sp)
+    }
+        
+    }
+
 @Preview(showBackground=true)
 @Composable
-fun HomeScreenPreview(){
-    HomeScreen(rememberNavController())
+fun HomeContentPreview(){
+    HomeContent(rememberNavController())
 }

@@ -1,18 +1,20 @@
 package com.example.malkia.models
 
 class Upload {
+        var name:String=""
+        var quantity:String=""
+        var price:String=""
+        var imageUrl:String=""
+        var id:String=""
 
-    var name:String=""
-    var stream:String=""
-    var password:String=""
-    var id:String=""
+        constructor(name:String,quantity:String,price:String,imageUrl:String,id:String){
 
-    constructor(name:String,stream:String,password:String,id:String){
-        this.name=name
-        this.stream=stream
-        this.password=password
-        this.id=id
+            this.name=name
+            this.quantity=quantity
+            this.price=price
+            this.imageUrl=imageUrl
+            this.id=id
+
+        }
+        constructor()
     }
-    constructor()
-
-}
